@@ -1,0 +1,24 @@
+---
+layout: ../../layouts/NoteLayout.astro
+title: The page should arrive before the application
+description: A field note on static HTML, selective hydration, and the value of making the default experience the dependable one.
+date: 2026.07.15
+---
+
+## Content is the first interface
+
+KUMO’s portfolio is authored as content, not as a long-running application pretending to be a document. Astro resolves the page at build time, and the browser gets meaningful HTML immediately.
+
+That changes the design conversation. The first question becomes “what should a person understand?” rather than “what state should the client initialize?”
+
+> The smallest useful runtime is usually the most resilient one.
+
+## Islands are a budget
+
+React is still valuable here, but it has a boundary. Interactive components opt into hydration with an Astro client directive; everything around them remains still, fast, and inspectable.
+
+The architecture explorer on the home page is one such island. It earns its runtime by letting a reader compare layers of the system. The masthead, project narrative, and this MDX article do not need one.
+
+## The resulting path
+
+The source moves through `MDX + Tailwind + React`, into Astro’s build pipeline and Vite’s optimizer, and finally into static HTML. At runtime, hydration activates only the React islands that ask for it.

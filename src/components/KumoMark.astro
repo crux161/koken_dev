@@ -1,0 +1,17 @@
+---
+interface Props { inverted?: boolean; compact?: boolean; }
+const { inverted = false, compact = false } = Astro.props;
+---
+<a class:list={["mark", { inverted, compact }]} href="/" aria-label="KUMO home">
+  <img src="/images/kumo-logo.png" alt="" width="70" height="51" aria-hidden="true" />
+  <span class="word">kumo</span>
+</a>
+
+<style>
+  .mark { display:inline-flex; align-items:center; gap:.62rem; color:#111; text-decoration:none; }
+  img { width:2.65rem; height:auto; object-fit:contain; }
+  .word { font-size:1.36rem; font-weight:650; letter-spacing:-.055em; }
+  .inverted { color:#fff; }
+  .compact .word { display:none; }
+  @media (max-width: 640px) { .word { font-size:1.15rem; } }
+</style>

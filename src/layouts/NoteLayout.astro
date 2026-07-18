@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={`${frontmatter.title} — KUMO`} description={frontmatter.description}>
+  <SiteHeader />
+  <main class="note shell">
+    <a class="back" href="/">← Back to KUMO</a>
+    <p class="eyebrow">Field note / {frontmatter.date}</p>
+    <h1>{frontmatter.title}</h1>
+    <p class="lede">{frontmatter.description}</p>
+    <article class="prose"><slot /></article>
+  </main>
+</BaseLayout>
+
+<style>
+  .note { padding-top:clamp(4rem,8vw,8rem); padding-bottom:8rem; }
+  .back { display:inline-block; margin-bottom:5rem; color:#555; font-size:.85rem; text-decoration:none; }
+  h1 { max-width:1050px; margin:1.5rem 0; font-size:clamp(3.5rem,8vw,8rem); font-weight:450; line-height:.9; letter-spacing:-.075em; }
+  .lede { max-width:760px; margin:2rem 0 5rem; color:#555; font-size:clamp(1.2rem,2vw,1.65rem); line-height:1.5; }
+  .prose { max-width:760px; margin-left:auto; }
+  .prose :global(h2) { margin:4rem 0 1rem; font-size:2.2rem; font-weight:500; letter-spacing:-.04em; }
+  .prose :global(p), .prose :global(li) { color:#353535; font-size:1.05rem; line-height:1.8; }
+  .prose :global(code) { padding:.14rem .35rem; background:#e9e7e1; font-family:var(--font-mono); font-size:.9em; }
+  .prose :global(blockquote) { margin:3rem 0; padding:1.5rem 0 1.5rem 2rem; border-left:3px solid var(--red); font-size:1.4rem; }
+</style>

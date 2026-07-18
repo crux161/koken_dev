@@ -1,0 +1,23 @@
+.architecture-console { position:relative; left:50%; width:100vw; margin-left:-50vw; border-top:1px solid #343434; border-bottom:1px solid #343434; background:#171717; color:#fff; }
+.console-tabs { display:grid; grid-template-columns:repeat(3, 1fr); border-bottom:1px solid #343434; }
+.console-tabs button { display:grid; grid-template-columns:auto auto 1fr; align-items:center; gap:.8rem; min-height:5.5rem; padding:1rem 1.2rem; color:#929292; background:transparent; border:0; border-right:1px solid #343434; font:500 .85rem/1 var(--font-sans); text-align:left; cursor:pointer; transition:color .2s, background .2s; }
+.console-tabs button:last-child { border-right:0; }
+.console-tabs button:hover { color:#fff; background:#202020; }
+.console-tabs button.active { color:#fff; background:var(--red); }
+.tab-index { align-self:start; font:500 .62rem/1 var(--font-mono); opacity:.75; }
+.console-detail { position:relative; display:grid; grid-template-columns:4.5rem minmax(0, 1fr) auto; gap:2rem; align-items:start; min-height:23rem; padding:clamp(2rem, 5vw, 4.5rem); overflow:hidden; }
+.console-detail::after { position:absolute; right:-6rem; bottom:-12rem; width:28rem; height:28rem; content:""; border:1px solid #343434; border-radius:50%; box-shadow:0 0 0 4rem rgba(255,255,255,.015), 0 0 0 8rem rgba(255,255,255,.01); }
+.detail-icon { display:grid; place-items:center; width:4.5rem; aspect-ratio:1; color:#111; background:#fff; border-radius:50%; }
+.console-kicker { display:flex; align-items:center; gap:.55rem; margin:0 0 1.8rem; color:#a7a7a7; font:500 .67rem/1 var(--font-mono); letter-spacing:.12em; }
+.console-detail h3 { max-width:700px; margin:0; font-size:clamp(2.25rem, 5vw, 5rem); font-weight:450; line-height:.98; letter-spacing:-.06em; }
+.detail-copy { max-width:660px; margin:2rem 0; color:#bdbdbd; font-size:clamp(1rem, 1.6vw, 1.28rem); line-height:1.6; }
+.chips { display:flex; flex-wrap:wrap; gap:.5rem; }
+.chips span { padding:.55rem .8rem; border:1px solid #414141; color:#d0d0d0; font:500 .68rem/1 var(--font-mono); text-transform:uppercase; letter-spacing:.08em; }
+.detail-arrow { position:relative; z-index:1; color:#656565; }
+@media (max-width: 700px) {
+  .console-tabs button { grid-template-columns:1fr; justify-items:start; min-height:6.8rem; padding:1rem; }
+  .console-tabs button .semi-icon { display:none; }
+  .console-detail { grid-template-columns:1fr; gap:1.5rem; min-height:29rem; padding:2rem 1.25rem; }
+  .detail-icon { width:3.5rem; }
+  .detail-arrow { display:none; }
+}
